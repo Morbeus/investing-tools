@@ -17,9 +17,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-import mysql.connector
-from mysql.connector import Error
-import os
+
 
 def connect_to_database():
     """
