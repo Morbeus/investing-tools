@@ -7,11 +7,6 @@ tickers = ['RELIANCE.NS', 'TCS.NS', 'INFY.NS']
 # data = yf.download(tickers, start="2023-01-01", end="2023-08-10")
 # print(data)
 
-import yfinance as yf
-
-# List of NSE tickers
-tickers = ['RELIANCE.NS', 'TCS.NS', 'INFY.NS']
-
 # Loop through each ticker to get additional data
 for ticker in tickers:
     stock = yf.Ticker(ticker)
