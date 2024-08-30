@@ -1,20 +1,21 @@
 # We will use the nselib API for getting the list of equities. 
 # once we have a list of equities we will use the yahoo finance api for getting the required stock data
-
 import yfinance as yf
+import pandas as pd
 
-tickers = ['RELIANCE.NS', 'TCS.NS', 'INFY.NS']
-# data = yf.download(tickers, start="2023-01-01", end="2023-08-10")
-# print(data)
+# Fetching data for RELIANCE.NS
+ticker = 'RELIANCE.NS'
+stock = yf.Ticker(ticker)
+info = stock.info
 
-# Loop through each ticker to get additional data
-for ticker in tickers:
-    stock = yf.Ticker(ticker)
-    
-    # Fetching fundamental data
-    info = stock.info
-    print(info)
-    
+# Converting the JSON object to a DataFrame
+df = pd.DataFrame([info])
+print(df.head())
+# Saving the DataFrame to a CSV file
+df.to_csv('reliance_info.csv', index=False)
+
+print("Data saved to reliance_info.csv")
+
     # # Extracting required data
     # company_name = info.get('longName', 'N/A')
     # market_cap = info.get('marketCap', 'N/A')
